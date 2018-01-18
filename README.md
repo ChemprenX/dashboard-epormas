@@ -10,7 +10,7 @@ Epormas dashboard repository
 
 This Package is part of Dashboard Pimpinan
 ==========================================
-(test_command)
+
 ## Install
 ```
 composer create-project bantenprov/tanara:dev-dev
@@ -52,38 +52,35 @@ $this->command->info('EpormasCategory table seeded!');
 in your `resources/assets/routes.js` add this code in `const routes`
 ``` php
 
-const routes = [{
-  path: '/',
-  component: resolve => require(['./layout.vue'], resolve),
-  children: [
-  ....  
+let routes = [
+   ....  
   {
       path: 'dashboard/epormas',
-      component: resolve => require(['./components/dashboard_epormas.vue'], resolve),
+      component: resolve => require(['../components/dashboard_epormas.vue'], resolve),
       meta: {
           title: "Dashboard Epormas",
       }
   }, {
       path: 'epormas',
-      component: resolve => require(['./components/epormas_list.vue'], resolve),
+      component: resolve => require(['../components/epormas_list.vue'], resolve),
       meta: {
           title: "Epormas",
       }
   },  {
       path: 'epormas/create',
-      component: resolve => require(['./components/add_epormas.vue'], resolve),
+      component: resolve => require(['../components/add_epormas.vue'], resolve),
       meta: {
           title: "Epormas",
       }
   },  {
       path: 'epormas/:id/edit',
-      component: resolve => require(['./components/edit_epormas.vue'], resolve),
+      component: resolve => require(['../components/edit_epormas.vue'], resolve),
       meta: {
           title: "Epormas",
       }
   }, {
       path: 'epormas/:id/destroy',
-      component: resolve => require(['./components/destroy.vue'], resolve),
+      component: resolve => require(['../components/destroy.vue'], resolve),
       meta: {
           title: "Destroy",
       }
@@ -94,18 +91,18 @@ const routes = [{
 ....
 ```
 
-in your `resources/assets/menu.js` add this code
+in your `resources/assets/admin-menu.js` add this code
 ``` php
 
 {
     name: 'Dashboard',
-    icon: 'ti-bar-chart',
+    icon: 'fa fa-folder',
     child: [
     ....
     {
         name: 'Epormas',
         link: '/dashboard/epormas',
-        icon: 'ti-angle-double-right'
+        icon: 'fa fa-circle'
     },
     ....
   ]
@@ -113,11 +110,11 @@ in your `resources/assets/menu.js` add this code
 ....
 {
     name: "Data Epormas",
-    icon: "ti-files",
+    icon: "fa fa-folder",
     child: [{
         name: 'list Epormas',
         link: '/epormas',
-        icon: 'ti-angle-double-right'
+        icon: 'fa fa-circle'
     }]
 },
 ....
